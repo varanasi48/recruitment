@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Material Icons CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- New Header Section -->
+    <header class="bg-white p-4 shadow-md flex items-center">
+        <img src="logo.jpg" alt="Company Logo" class="h-12 w-12 mr-4">
+        <div class="flex-1 text-center">
+            <div class="text-xl font-bold text-2xl">Prachi India Private Limited</div>
+        </div>
+    </header>
+    <div class="bg-white p-8 shadow-lg mt-4">
+        <h1 class="text-2xl font-bold mb-6 text-center">Job Application</h1>
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    Name
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+            </div>
+            <!-- New Address Field -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+                    Address
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" placeholder="Your Address">
+            </div>
+            <!-- New Phone Number Field -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                    Phone Number
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="Your Phone Number">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">
+                    Date of Birth
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob" type="date">
+            </div>
+            <!-- Resume Field -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="resume">
+                    Resume
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="resume" type="file">
+            </div>
+            <!-- Qualification Table -->
+            <div class="mb-4">
+                <h2 class="text-xl font-bold mb-2">Qualifications</h2>
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2">Qualification</th>
+                            <th class="py-2">Year</th>
+                            <th class="py-2">Institution</th>
+                            <th class="py-2">GPA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Six rows for qualifications -->
+                        
+                    </tbody>
+                </table>
+            </div>
+            <!-- Experience Fields -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="experience">
+                    Experience in Years
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="experience" type="number" placeholder="Years of Experience">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="companies">
+                    Number of Companies
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="companies" type="number" placeholder="Number of Companies">
+            </div>
+             <!-- Employment Details Table -->
+             <div class="mb-4">
+                <h2 class="text-xl font-bold mb-2">Employment Details</h2>
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2">Company Name</th>
+                            <th class="py-2">Joining Date</th>
+                            <th class="py-2">Relieving Date</th>
+                            <th class="py-2">Salary</th>
+                            <th class="py-2">Reason for Leaving</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employment-details">
+                        <!-- Rows will be dynamically added based on the number of companies -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Vehicle Type Section -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
+                    Vehicle Type
+                </label>
+                <div class="flex items-center">
+                    <input type="checkbox" id="two-wheeler" class="mr-2">
+                    <label for="two-wheeler" class="mr-4">Two Wheeler</label>
+                    <input type="checkbox" id="four-wheeler" class="mr-2">
+                    <label for="four-wheeler">Four Wheeler</label>
+                </div>
+            </div>
+            <!-- Marital Status Section -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="marital-status">
+                    Marital Status
+                </label>
+                <select id="marital-status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="separated">Separated</option>
+                </select>
+            </div>
+            <!-- New Methodology Fields -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="methodology-sampling">
+                    Methodology Sampling
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="methodology-sampling" type="text" placeholder="Methodology Sampling">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="methodology-conversion">
+                    Methodology Conversion
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="methodology-conversion" type="text" placeholder="Methodology Conversion">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="methodology-payment">
+                    Methodology Payment
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="methodology-payment" type="text" placeholder="Methodology Payment">
+            </div>
+            <!-- New School and Reference Fields -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="schools-visited">
+                    Schools Visited
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="schools-visited" type="text" placeholder="Schools Visited">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="reference">
+                    Any Reference
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="reference" type="text" placeholder="Any Reference">
+            </div>
+           
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // JavaScript to dynamically add rows based on the number of companies
+        document.getElementById('companies').addEventListener('input', function() {
+            const numCompanies = parseInt(this.value) || 0;
+            const tbody = document.getElementById('employment-details');
+            tbody.innerHTML = ''; // Clear existing rows
+            for (let i = 0; i < numCompanies; i++) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><input type="text" class="w-full border"></td>
+                    <td><input type="date" class="w-full border"></td>
+                    <td><input type="date" class="w-full border"></td>
+                    <td><input type="text" class="w-full border"></td>
+                    <td><input type="text" class="w-full border"></td>
+                `;
+                tbody.appendChild(row);
+            }
+        });
+
+        // Add six rows for qualifications
+        const qualificationRows = document.querySelector('tbody');
+        for (let i = 0; i < 6; i++) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="text" class="w-full border"></td>
+                <td><input type="text" class="w-full border"></td>
+                <td><input type="text" class="w-full border"></td>
+                <td><input type="text" class="w-full border"></td>
+            `;
+            qualificationRows.appendChild(row);
+        }
+    </script>
+</body>
+</html>

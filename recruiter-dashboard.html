@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        nav {
+            min-height: 100vh;
+        }
+        #applicant-table {
+            display: none; /* Initially hidden */
+        }
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Full Page Navigation Panel -->
+    <nav class="bg-blue-900 text-white w-64 p-6 shadow-lg">
+        <div class="text-2xl font-bold mb-8">Dashboard</div>
+        <ul>
+            <li class="mb-6">
+                <a href="#" class="hover:text-blue-300 font-semibold">Home</a>
+            </li>
+            <li class="mb-6">
+                <a href="#" class="hover:text-blue-300 font-semibold" onclick="showApplicantTable()">Applicant Management</a>
+            </li>
+            <li class="mb-6">
+                <a href="#" class="hover:text-blue-300 font-semibold" onclick="showInterviewsTable()">Interviews</a>
+            </li>
+            <li class="mb-6">
+                <a href="#" class="hover:text-blue-300 font-semibold">Verification</a>
+            </li>
+            <li class="mb-6">
+                <a href="#" class="hover:text-blue-300 font-semibold">Offer Letter</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="flex-1 p-8">
+        <!-- Header Section -->
+        <header class="bg-white p-4 shadow-md flex items-center justify-between mb-8">
+            <div class="text-xl font-bold">Recruiter Dashboard</div>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+        </header>
+        <!-- Dashboard Content -->
+        <div class="grid grid-cols-3 gap-6">
+            <!-- Total Applicants Section -->
+            <div class="bg-white p-6 shadow-md rounded-lg">
+                <h2 class="text-lg font-bold mb-4">Total Applicants</h2>
+                <p class="text-2xl font-semibold">100</p> <!-- Example number -->
+            </div>
+            <!-- New Applicants Section -->
+            <div class="bg-white p-6 shadow-md rounded-lg">
+                <h2 class="text-lg font-bold mb-4">New Applicants</h2>
+                <p class="text-2xl font-semibold">25</p> <!-- Example number -->
+            </div>
+            <!-- Rejected Applicants Section -->
+            <div class="bg-white p-6 shadow-md rounded-lg">
+                <h2 class="text-lg font-bold mb-4">Rejected Applicants</h2>
+                <p class="text-2xl font-semibold">10</p> <!-- Example number -->
+            </div>
+        </div>
+        <!-- Interviews Table -->
+        <div id="interviews-table" class="bg-white p-6 shadow-md rounded-lg mt-8" style="display: none;">
+            <h2 class="text-lg font-bold mb-4">Interviews</h2>
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2">Name</th>
+                        <th class="py-2">Phone Number</th>
+                        <th class="py-2">Email ID</th>
+                        <th class="py-2">Schedule</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-2">John Doe</td>
+                        <td class="py-2">123-456-7890</td>
+                        <td class="py-2">john.doe@example.com</td>
+                        <td class="py-2">
+                            <input type="date" class="border rounded p-1 mr-2">
+                            <input type="time" class="border rounded p-1 mr-2">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Schedule</button>
+                        </td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Applicant Table -->
+        <div id="applicant-table" class="bg-white p-6 shadow-md rounded-lg mt-8">
+            <h2 class="text-lg font-bold mb-4">Applicant Details</h2>
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2">Name</th>
+                        <th class="py-2">Experience</th>
+                        <th class="py-2">Last Drawn Salary</th>
+                        <th class="py-2">Salary Expected</th>
+                        <th class="py-2">Expected Date of Joining</th>
+                        <th class="py-2">Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-2"><a href="#" class="text-blue-500 hover:text-blue-700" onclick="openModal()">John Doe</a></td>
+                        <td class="py-2">5 years</td>
+                        <td class="py-2">$50,000</td>
+                        <td class="py-2">$60,000</td>
+                        <td class="py-2">01/01/2024</td>
+                        <td class="py-2">123-456-7890</td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="applicantModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="text-lg font-bold mb-4">Applicant Details</h2>
+            <p>Name: John Doe</p>
+            <p>Experience: 5 years</p>
+            <p>Last Drawn Salary: $50,000</p>
+            <p>Salary Expected: $60,000</p>
+            <p>Expected Date of Joining: 01/01/2024</p>
+            <p>Phone Number: 123-456-7890</p>
+            <div class="flex justify-end mt-4">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">Approve</button>
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Reject</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showApplicantTable() {
+            document.getElementById('applicant-table').style.display = 'block';
+            document.getElementById('interviews-table').style.display = 'none';
+        }
+
+        function showInterviewsTable() {
+            document.getElementById('interviews-table').style.display = 'block';
+            document.getElementById('applicant-table').style.display = 'none';
+        }
+
+        function openModal() {
+            document.getElementById('applicantModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('applicantModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
