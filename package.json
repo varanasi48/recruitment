@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo \"No build needed for Azure Functions\"",
+    "build:azure": "echo \"No build needed for Azure Functions\"",
   },
   "repository": {
     "type": "git",
