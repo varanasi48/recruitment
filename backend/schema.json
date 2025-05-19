@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Applicant",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the applicant"
+    },
+    "experience": {
+      "type": "string",
+      "description": "The experience of the applicant"
+    },
+    "last_drawn_salary": {
+      "type": "string",
+      "description": "The last drawn salary of the applicant"
+    },
+    "salary_expected": {
+      "type": "string",
+      "description": "The salary expected by the applicant"
+    },
+    "expected_date_of_joining": {
+      "type": "string",
+      "format": "date",
+      "description": "The expected date of joining"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "The phone number of the applicant"
+    },
+    "address": {
+      "type": "string",
+      "description": "The address of the applicant"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the applicant"
+    },
+    "qualifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "qualification": {
+            "type": "string",
+            "description": "The qualification obtained"
+          },
+          "year": {
+            "type": "string",
+            "format": "date",
+            "description": "The year of obtaining the qualification"
+          },
+          "institute": {
+            "type": "string",
+            "description": "The institute where the qualification was obtained"
+          },
+          "gpa": {
+            "type": "number",
+            "description": "The GPA obtained"
+          }
+        },
+        "required": ["qualification", "year", "institute"]
+      },
+      "description": "An array of qualifications with details"
+    },
+    "companies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the company"
+          },
+          "joining_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The joining date at the company"
+          },
+          "relieving_date": {
+            "type": "string",
+            "format": "date",
+            "description": "The relieving date from the company"
+          },
+          "salary": {
+            "type": "integer",
+            "description": "The salary at the company"
+          },
+          "reason": {
+            "type": "string",
+            "description": "The reason for leaving the company"
+          }
+        },
+        "required": ["name", "joining_date", "salary", "area_of_sale"]
+      },
+      "description": "An array of companies the applicant has worked for, with details"
+    },
+    "marital_status": {
+      "type": "string",
+      "description": "The marital status of the applicant"
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of birth of the applicant"
+    },
+    "schools_visited": {
+      "type": "string",
+      "description": "The methodology for sampling"
+    },
+    "references": {
+      "type": "string",
+      "description": "References for the applicant"
+    },
+    "vehicle_type": {
+      "type": "object",
+      "properties": {
+        "two_wheeler": {
+          "type": "boolean",
+          "description": "Indicates if the applicant has a two-wheeler"
+        },
+        "four_wheeler": {
+          "type": "boolean",
+          "description": "Indicates if the applicant has a four-wheeler"
+        }
+      },
+      "description": "Vehicle type information"
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the application",
+      "enum": ["applied", "reviewed", "interviewed", "hired", "rejected"]
+    }
+  },
+  "required": ["name", "experience", "phone_number", "email", "salary_expected", "expected_joining_date"]
+}
