@@ -12,7 +12,7 @@ blinker==1.9.0
 bottle==0.13.3
 build==1.2.2.post1
 builder==0.1.0
-buildozer==1.5.0
+
 cachetools==5.5.1
 certifi==2025.1.31
 cffi==1.17.1
@@ -163,7 +163,7 @@ pytesseract==0.3.13
 python-bidi==0.6.6
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.0
-python-for-android==2024.1.21
+
 pythonnet==3.0.5
 pyttsx3==2.98
 pytz==2025.2
@@ -183,7 +183,7 @@ safetensors==0.5.3
 scikit-image==0.25.2
 scipy==1.15.2
 setuptools==78.1.0
-sh==2.2.2
+
 shapely==2.1.0
 shellingham==1.5.4
 six==1.17.0
