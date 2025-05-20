@@ -21,7 +21,7 @@ password = quote_plus(os.getenv('MONGO_PASSWORD'))
 cluster = os.getenv('MONGO_CLUSTER')
 
 # Connect to MongoDB
-client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority&appName=Cluster0')
+client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority&appName=prachi')
 db = client['prachi']
 collection = db['candidates']
 
@@ -29,6 +29,15 @@ collection = db['candidates']
 schema_path = os.path.join(os.path.dirname(__file__), 'schema.json')
 with open(schema_path) as f:
     schema = json.load(f)
+
+@app.route('/test_mongodb_connection', methods=['GET'])
+def test_mongodb_connection():
+    try:
+        # Attempt to list databases to test the connection
+        client.admin.command('ping')
+        return jsonify({"message": "MongoDB connection successful"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/', methods=['GET'])
 def home():
