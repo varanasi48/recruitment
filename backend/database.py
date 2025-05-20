@@ -13,6 +13,6 @@ def get_database():
     cluster = os.getenv('MONGO_CLUSTER')
 
     # Connect to MongoDB
-    client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority&appName=Cluster0')
+    client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority&appName=prachi')
     db = client['prachi']
     return db
