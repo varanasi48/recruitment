@@ -21,7 +21,7 @@ password = quote_plus(os.getenv('MONGO_PASSWORD'))
 cluster = os.getenv('MONGO_CLUSTER')
 
 # Connect to MongoDB
-client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority&appName=prachi')
+client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster}/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['prachi']
 collection = db['candidates']
 
