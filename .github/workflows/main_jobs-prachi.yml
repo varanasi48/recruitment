@@ -77,7 +77,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4EC2B81316934AD197E8FA626B816AF4 }}
 
       - name: 'Deploy to Azure Functions'
-        uses: Azure/functions-action@v4
+        uses: Azure/functions-action@v1
         id: deploy-to-function
         with:
           app-name: 'jobs-prachi'
