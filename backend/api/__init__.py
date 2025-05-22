@@ -1,7 +1,6 @@
-# backend/api/__init__.py
-
 import azure.functions as func
-from server import main_handler  # your FastAPI/Flask-like logic
+from azure.functions import WsgiMiddleware
+from server import app  # your Flask app object
 
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
-    return main_handler(req)
+    return WsgiMiddleware(app).handle(req, context)
